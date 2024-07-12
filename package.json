@@ -1,0 +1,15 @@
+{
+  "name": "vulnerability-scanner",
+  "version": "1.0.0",
+  "description": "Vulnerability Scanner Web Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "socket.io": "^4.0.0",
+    "pdfkit": "^0.12.1"
+  }
+}

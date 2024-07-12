@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vulnerability Scanner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1>Vulnerability Scanner</h1>
+      <h1>Sturtle Security Pvt Ltd</h1>
+    </div>
+    <div class="form">
+      <input type="text" id="urlInput" placeholder="Enter URL to scan">
+      <select id="scanType">
+        <option value="all">All</option>
+        <option value="sqlmap">SQLmap</option>
+        <option value="nmap">Nmap</option>
+        <option value="nuclei">Nuclei</option>
+      </select>
+      <select id="nmapType" style="display: none;">
+        <option value="no-ping">No-Ping Scan</option>
+        <option value="aggressive">Aggressive Scan</option>
+        <option value="script">Script Scan</option>
+        <option value="service">Service Scan</option>
+      </select>
+      <button id="startScanButton">Start Scan</button>
+      <button id="generatePdfButton" disabled>Generate PDF Report</button>
+    </div>
+    <div class="terminals">
+      <div class="terminal" id="sqlmapTerminal">
+        <h2>SQLmap</h2>
+        <pre id="sqlmapOutput"></pre>
+      </div>
+      <div class="terminal" id="nmapTerminal">
+        <h2>Nmap</h2>
+        <pre id="nmapOutput"></pre>
+      </div>
+      <div class="terminal" id="nucleiTerminal">
+        <h2>Nuclei</h2>
+        <pre id="nucleiOutput"></pre>
+      </div>
+      <div class="terminal" id="guidelineTerminal">
+        <h2>Guidelines</h2>
+        <pre>
+1. Enter the URL to scan.
+2. Select the type of scan (All, SQLmap, Nmap, Nuclei).
+3. If Nmap is selected, choose the specific scan type.
+4. Click "Start Scan" to begin.
+5. Monitor real-time output in the terminals.
+6. Click "Generate PDF Report" to download the results.
+        </pre>
+      </div>
+    </div>
+    <div class="loading" id="loadingAnimation">Scanning...</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
